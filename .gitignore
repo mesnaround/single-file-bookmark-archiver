@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# config with credentials
+config.yaml
+
+# node stuff
+node_modules
+
+# personal notes
+todo.md

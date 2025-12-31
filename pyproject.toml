@@ -1,0 +1,11 @@
+[project]
+name = "single-file-bookmark-archiver"
+version = "0.1.0"
+description = "Use single file to archive webpages from a specific bookmark folder, and schedule with systemd"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "lz4>=4.4.5",
+    "pyyaml>=6.0.3",
+    "mqtt-script-wrapper @ git+https://github.com/mesnaround/mqtt-script-wrapper.git@0.1.2",
+]

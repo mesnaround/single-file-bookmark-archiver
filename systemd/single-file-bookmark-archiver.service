@@ -1,0 +1,8 @@
+[Unit]
+Description=Single File CLI Firefox Bookmark Archiver
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=SINGLE_FILE_BOOKMARK_ARCHIVER_CONFIG=%h/.config/single_file_bookmark_archiver/config.yaml
+ExecStart=%h/.local/share/single_file_bookmark_archiver/.venv/bin/python %h/.local/share/single_file_bookmark_archiver/mqtt_wrapper_entry.py

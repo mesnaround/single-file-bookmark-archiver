@@ -1,0 +1,11 @@
+[Unit]
+Description=Single File Bookmark Archiver Timer
+Requires=single-file-bookmark-archiver.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+AccuracySec=1h
+
+[Install]
+WantedBy=timers.target

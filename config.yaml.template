@@ -1,0 +1,13 @@
+# Single File Bookmark Archiver Configuration
+single_file_bookmark_archiver:
+  bookmark_folder_name: "to_archive"
+  archive_destination: "/home/you/archive/webpages"
+  processed_urls_log: "/home/you/archive/webpages/processed_urls.txt"
+  firefox_profile: null
+
+# MQTT connection info
+mqtt:
+  host: "<mqtt endpoint>"
+  port: 1883
+  user: "<mqtt user>"
+  password: "<mqtt password>"
