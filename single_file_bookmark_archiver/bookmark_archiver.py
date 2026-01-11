@@ -279,22 +279,31 @@ class BookmarkArchiver:
         
         # Archive each URL
         success_count = 0
+        fail_count = 0
         for item in new_urls:
             if self.archive_url(item['url'], item['title']):
                 success_count += 1
-        
-        print(f"\n✓ Successfully archived {success_count}/{len(new_urls)} URLs")
+            else:
+                fail_count += 1
+
+        if success_count > 0:
+            print(f"\n✓ Successfully archived {success_count}/{len(new_urls)} URLs")
+            return 0
+        if fail_count > 0:
+            print(f"\n✓ Failed to archive {fail_count} URLs")
+            return 1
 
 
 def main():
-    config_path = sPath(ys.argv[1]) if len(sys.argv) > 1 else Path(os.getenv('SINGLE_FILE_BOOKMARK_ARCHIVER_CONFIG'))
+    config_path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(os.getenv('SINGLE_FILE_BOOKMARK_ARCHIVER_CONFIG'))
 
     if not config_path.exists():
         logger.error(f"Config file not found: {config_path}")
         sys.exit(1)
 
     archiver = BookmarkArchiver(config_path)
-    archiver.run()
+    rc = archiver.run()
+    sys.exit(rc)
 
 
 if __name__ == "__main__":
